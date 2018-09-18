@@ -1,9 +1,18 @@
+%head
+  <link href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" rel="stylesheet">
+%body
 .header
   .header-message チャットグループが作成されました
 .chat_side
   .chat_side_user
     .chat_side_user_content
       %p.chat_side_user_name ayaka
+      .chat_side_user_edit
+        =link_to "http://www.yahoo.co.jp/" do
+          %i.fas.fa-edit.icon-color
+        =link_to "http://www.yahoo.co.jp/" do
+          %i.fas.fa-cogs.icon-color
+
   .chat_side_group
     %p.chat_side_group_name グループ名
     %p.chat_side_group_message メッセージ
@@ -24,8 +33,12 @@
   .chat_main_footer
     %form.chat_main_footer_form
       .chat_main_footer_body
-        %input.message{:placeholder => "type a message"}/
-        %input.submit{:value => "Send"}/
+        %input.message{:type => "text",:placeholder => "type a message"}/
+        %label.chat-file
+          %input.filelabel{:type => "file" ,:title => "ファイルを選択"}
+          %i.far.fa-image
+
+        %input.submit{:type => "submit",:value => "Send"}/
 
 
 

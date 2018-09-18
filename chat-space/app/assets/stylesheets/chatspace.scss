@@ -32,6 +32,13 @@
       position: relative;
       display:inline-block;
       }
+      .chat_side_user_edit{
+        float: right;
+        margin-right: 20px;
+        .icon-color{
+          color: white;
+        }
+      }
     }
   }
   .chat_side_group{
@@ -127,10 +134,22 @@
                 .chat_main_footer_body{
                   position: relative;
                   .message{
+                    position: absolute;
                     height:20px;
                     width: calc(100% - 130px);
                     padding: 15px 10px;
                     margin: 20px 0;
+                  }
+                  .chat-file{
+                    height: 50px;
+                    width: 40px;
+                    margin: 32px 130px 20px 0;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    .filelabel{
+                      display: none;
+                    }
                   }
                   .submit{
                     position: absolute;
