@@ -1,0 +1,33 @@
+.header
+  .header-message チャットグループが作成されました
+.chat_side
+  .chat_side_user
+    .chat_side_user_content
+      %p.chat_side_user_name ayaka
+  .chat_side_group
+    %p.chat_side_group_name グループ名
+    %p.chat_side_group_message メッセージ
+.chat_main
+  .chat_main_header
+    .chat_main_header_group
+      %p.chat_main_header_group_name Sampleグループ
+      %a.chat_main_header_group_edit_btn edit
+      %p.chat_main_header_group_member メンバー名
+  .chat_main_body
+    .chat_main_message_list
+      %p.chat_main_message_name ayaka
+      %p.chat_main_message_time 2018/09/18 0000000
+      %p.chat_main_message_body おはよう
+      %p.chat_main_message_name ayaka
+      %p.chat_main_message_time 2018/09/18 0000000
+      %p.chat_main_message_body おはよう
+  .chat_main_footer
+    %form.chat_main_footer_form
+      .chat_main_footer_body
+        %input.message{:placeholder => "type a message"}/
+        %input.submit{:value => "Send"}/
+
+
+
+
+
