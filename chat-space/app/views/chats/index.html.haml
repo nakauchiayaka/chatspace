@@ -1,44 +1,43 @@
-%head
-  <link href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" rel="stylesheet">
-%body
-.header
-  .header-message チャットグループが作成されました
-.chat_side
-  .chat_side_user
-    .chat_side_user_content
-      %p.chat_side_user_name ayaka
-      .chat_side_user_edit
-        =link_to "http://www.yahoo.co.jp/" do
-          %i.fas.fa-edit.icon-color
-        =link_to "http://www.yahoo.co.jp/" do
-          %i.fas.fa-cogs.icon-color
+!!!
+%html
+  %head
+    <link href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" rel="stylesheet">
+  %body
+  .header
+    .header__message チャットグループが作成されました
+  .chat-side
+    .chat-side__user
+      .chat-side__user--content
+        %p.chat-side__user--content--name ayaka
+        .chat-side__user--content--edit
+          =link_to "http://www.yahoo.co.jp/" do
+            %i.fas.fa-edit.icon-color
+          =link_to "http://www.yahoo.co.jp/" do
+            %i.fas.fa-cogs.icon-color
 
-  .chat_side_group
-    %p.chat_side_group_name グループ名
-    %p.chat_side_group_message メッセージ
-.chat_main
-  .chat_main_header
-    .chat_main_header_group
-      %p.chat_main_header_group_name Sampleグループ
-      %a.chat_main_header_group_edit_btn edit
-      %p.chat_main_header_group_member メンバー名
-  .chat_main_body
-    .chat_main_message_list
-      %p.chat_main_message_name ayaka
-      %p.chat_main_message_time 2018/09/18 0000000
-      %p.chat_main_message_body おはよう
-      %p.chat_main_message_name ayaka
-      %p.chat_main_message_time 2018/09/18 0000000
-      %p.chat_main_message_body おはよう
-  .chat_main_footer
-    %form.chat_main_footer_form
-      .chat_main_footer_body
-        %input.message{:type => "text",:placeholder => "type a message"}/
-        %label.chat-file
-          %input.filelabel{:type => "file" ,:title => "ファイルを選択"}
-          %i.far.fa-image
+    .chat-side__group
+      = render partial: 'chats/group'
+      = render partial: 'chats/group'
 
-        %input.submit{:type => "submit",:value => "Send"}/
+  .chat-main
+    .chat-main__header
+      .chat-main__header--group
+        %p.chat-main__header--group__name Sampleグループ
+        =link_to "http://www.yahoo.co.jp/" do
+          %p.chat-main__header--group__edit-btn edit
+        %p.chat-main__header--group__member メンバー名
+    .chat-main__body
+      = render partial: 'chats/chat'
+      = render partial: 'chats/chat'
+    .chat-main__footer
+      %form.chat-main__footer--form
+        .chat-main__footer--form__body
+          %input.chat-main__footer--form__body--message{type: "text",placeholder: "type a message"}/
+          %label.chat-main__footer--form__body--chat-file
+            %input.chat-main__footer--form__body--chat-file__filelabel{type: "file" ,title:"ファイルを選択"}
+            %i.far.fa-image
+
+          %input.chat-main__footer--form__body--submit{type: "submit",value:"Send"}/
 
 
 

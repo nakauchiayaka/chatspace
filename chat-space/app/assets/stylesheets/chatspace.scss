@@ -1,72 +1,71 @@
-.header{
-  background-color:#38AEF0;
-  width: 100%;
-  height: 30px;
-}
-.header-message{
-  font-size: 20px;
-  color: white;
-  text-align: center;
-}
-.chat_side{
-  width: 300px;
-  height: 100vh;
-  float: left;
-  .chat_side_user{
-    background-color: #253141;
-    height:15%;
-    width: 100%;
-    position: relative;
-    .chat_side_user_content{
-      height: 50px;
-      width: 100%;
-      margin:35px auto 15px;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      .chat_side_user_name{
-      color: $white;
-      font-size: 16px;
-      font-weight: bold;
-      margin:0 20px;
-      position: relative;
-      display:inline-block;
-      }
-      .chat_side_user_edit{
-        float: right;
-        margin-right: 20px;
-        .icon-color{
-          color: white;
+.header{background-color:$skyblue;
+        width: 100%;
+        height: 30px;
+        &__message{
+        font-size: 20px;
+        color: white;
+        text-align: center;
         }
-      }
-    }
-  }
-  .chat_side_group{
-    background-color: #2f3e51;
-    height: 85%;
-    .chat_side_group_name{
-      color: $white;
-      font-size: 15px;
-      padding-top: 20px;
-      margin-left: 20px;
-      padding-bottom: 5px;
-    }
-    .chat_side_group_message{
-      color: $white;
-      margin-left: 20px;
-      padding-bottom: 20px;
-    }
-  }
 }
-.chat_main{ height: 100vh;
-            width: calc(100vw - 300px);
+
+.chat-side{ width: 300px;
+            height: 100vh;
             float: left;
-            .chat_main_header{
+            &__user{
+              background-color: #253141;
+              width: 100%;
+              height:15%;
+              position: relative;
+              &--content{
+                width: 100%;
+                height: 50px;
+                margin:35px auto 15px;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                &--name{
+                color: $white;
+                font-size: 16px;
+                font-weight: bold;
+                margin:0 20px;
+                display:inline-block;
+                }
+                &--edit{
+                  float: right;
+                  margin-right: 20px;
+                  .icon-color{
+                    color: white;
+                  }
+                }
+              }
+            }
+            &__group{
+              background-color: #2f3e51;
+              height: 85%;
+              &--name{
+                color: $white;
+                font-size: 15px;
+                padding-top: 20px;
+                margin-left: 20px;
+                padding-bottom: 5px;
+              }
+              &--message{
+                color: $white;
+                margin-left: 20px;
+                padding-bottom: 20px;
+              }
+            }
+}
+
+.chat-main{ width: calc(100vw - 300px);
+            height: 100vh;
+            float: left;
+            &__header{
               height: 15%;
               border:1px solid #EEEEEE;
-              .chat_main_header_group{
+              &--group{
                 margin: 0 40px;
-                .chat_main_header_group_name{
+                &__name{
                   font-size: 20px;
                   color: #333333;
                   margin-top: 35px;
@@ -74,15 +73,15 @@
                   display: block;
                   float: left;
                 }
-                .chat_main_header_group_member{
+                &__member{
                     font-size: 15px;
-                    color: #999999;
+                    color: $gray;
                     margin-top: 15px;
                     display: block;
                     clear: both;
                 }
-                .chat_main_header_group_edit_btn{
-                  color: #38AEF0;
+                &__edit-btn{
+                  color: $skyblue;
                   height: 40px;
                   width: 70px;
                   line-height:40px;
@@ -90,32 +89,32 @@
                   font-size: 15px;
                   padding: 12.5px 20px;
                   margin-top: 28px;
-                  border: 1px solid #38AEF0;
+                  border: 1px solid $skyblue;
                   float: right;
                 }
               }
             }
 
-            .chat_main_body{
+            &__body{
               height: calc(85% - 90px);
               background-color:#AAAAAA;
-              .chat_main_message_list{
+              &--message__list{
                 margin: 0 40px;
-                .chat_main_message_name{
+                &--name{
                   font-size: 16px;
                   color: #434A54;
                   margin-top:46px;
                   font-weight: bold;
                   float: left;
                 }
-                .chat_main_message_time{
+                &--time{
                   font-size: 12px;
-                  color: #999999;
+                  color: $gray;
                   margin-top: 46px;
                   margin-left: 50px;
                   float: left;
                 }
-                .chat_main_message_body{
+                &--body{
                   font-size:14px;
                   color: #434A54;
                   margin-top: 10px;
@@ -125,38 +124,39 @@
               }
             }
 
-            .chat_main_footer{
+            &__footer{
               background-color: white;
               height: 90px;
-              .chat_main_footer_form{
+              &--form{
                 margin: 0 40px;
                 position: relative;
-                .chat_main_footer_body{
+                &__body{
                   position: relative;
-                  .message{
+                  &--message{
                     position: absolute;
                     height:20px;
                     width: calc(100% - 130px);
                     padding: 15px 10px;
                     margin: 20px 0;
                   }
-                  .chat-file{
+                  &--chat-file{
                     height: 50px;
                     width: 40px;
-                    margin: 32px 130px 20px 0;
+                    margin: 35px 130px 20px 0;
                     position: absolute;
                     top: 0;
                     right: 0;
-                    .filelabel{
+                    &__filelabel{
                       display: none;
                     }
                   }
-                  .submit{
+                  &--submit{
                     position: absolute;
                     width: 100px;
                     height: 50px;
                     color: $white;
-                    text-align: center;background-color:#38AEF0;
+                    text-align: center;
+                    background-color:$skyblue;
                     margin: 20px 0;
                     top: 0;
                     right: 0;
