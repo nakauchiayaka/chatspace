@@ -1,26 +1,10 @@
-.header
-  .header__message チャットグループが作成されました
-
 .main
-  .chat-side
-    .chat-side__user
-      .chat-side__user--content
-        %p.chat-side__user--content--name ayaka
-        .chat-side__user--content--edit
-          =link_to "http://www.yahoo.co.jp/" do
-            %i.fas.fa-edit.icon-color
-          =link_to "http://www.yahoo.co.jp/" do
-            %i.fas.fa-cogs.icon-color
-
-    .chat-side__group
-      = render partial: 'chats/group'
-      = render partial: 'chats/group'
-
+  = render 'shared/side_bar'
   .chat-main
     .chat-main__header
       .chat-main__header--group
         %p.chat-main__header--group__name Sampleグループ
-        =link_to "http://www.yahoo.co.jp/" do
+        =link_to "" do
           %p.chat-main__header--group__edit-btn edit
         %p.chat-main__header--group__member Members: seo Neko
     .chat-main__body
@@ -35,9 +19,3 @@
             %i.far.fa-image
 
           %input.chat-main__footer--form__body--submit{type: "submit",value:"Send"}/
-
-
-
-
-
-
