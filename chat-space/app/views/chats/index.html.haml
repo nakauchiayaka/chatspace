@@ -1,15 +1,13 @@
-.header
-  .header__message チャットグループが作成されました
-
 .main
   .chat-side
     .chat-side__user
       .chat-side__user--content
-        %p.chat-side__user--content--name ayaka
+        %p.chat-side__user--content--name
+          = current_user.name
         .chat-side__user--content--edit
-          =link_to "http://www.yahoo.co.jp/" do
+          =link_to new_group_path do
             %i.fas.fa-edit.icon-color
-          =link_to "http://www.yahoo.co.jp/" do
+          =link_to edit_user_path(current_user) do
             %i.fas.fa-cogs.icon-color
 
     .chat-side__group
