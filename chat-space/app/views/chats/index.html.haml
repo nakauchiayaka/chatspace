@@ -13,9 +13,10 @@
     .chat-main__footer
       %form.chat-main__footer--form
         .chat-main__footer--form__body
-          %input.chat-main__footer--form__body--message{type: "text",placeholder: "type a message"}/
-          %label.chat-main__footer--form__body--chat-file
-            %input.chat-main__footer--form__body--chat-file__filelabel{type: "file" ,title:"ファイルを選択"}
-            %i.far.fa-image
-
-          %input.chat-main__footer--form__body--submit{type: "submit",value:"Send"}/
+          = form_for [@group,@chat] do |f|
+            = f.text_field :content, class:'chat-main__footer--form__body--message',placeholder: "type a message"
+            .form__mask
+              =f.label :image,class:'chat-main__footer--form__body--chat-file' do
+                = fa_icon 'picture-o', class: 'far fa-image'
+                =f.file_field :image,class:'chat-main__footer--form__body--chat-file__filelabel'
+            = f.submit 'Send', class: 'chat-main__footer--form__body--submit'
