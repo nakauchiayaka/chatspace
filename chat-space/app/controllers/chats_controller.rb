@@ -1,5 +1,6 @@
 class ChatsController < ApplicationController
   before_action :set_group
+  before_action :set_user, only: :index
   def index
     @chat = Chat.new
     @chats = @group.chats.includes(:user)
@@ -23,5 +24,14 @@ class ChatsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:group_id])
+  end
+
+  def set_user
+    @users = []
+    @group_users = GroupUser.where(group_id: @group.id)
+    @group_users.each do |group_user|
+      user = User.find_by(id:group_user.user_id)
+      @users << user
+    end
   end
 end

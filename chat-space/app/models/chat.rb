@@ -4,4 +4,8 @@ class Chat < ApplicationRecord
 
   validates :content, presence: true, unless: :image?
   mount_uploader :image, ImageUploader
+
+  def show_group_member
+
+  end
 end

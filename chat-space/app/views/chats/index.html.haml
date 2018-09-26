@@ -7,7 +7,9 @@
         =link_to edit_group_path(@group) do
           %p.chat-main__header--group__edit-btn edit
         %p.chat-main__header--group__member
-
+          Members:
+          - @users.each do |user|
+            = user.name
     .chat-main__body
       = render @chats
     .chat-main__footer
