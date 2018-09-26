@@ -14,4 +14,7 @@
       = link_to group_chats_path(group) do
         .chat-side__group--name
           = group.name
-        .chat-side__group--message メッセージはまだありません
+        .chat-side__group--message
+          = group.show_last_chat
+
+

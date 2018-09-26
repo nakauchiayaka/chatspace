@@ -1,4 +1,10 @@
 .chat-main__body--message__list
-  %p.chat-main__body--message__list--name ayaka
-  %p.chat-main__body--message__list--time 2018/09/18 0000000
-  %p.chat-main__body--message__list--body おはよう
+  %p.chat-main__body--message__list--name
+    = chat.user.name
+  %p.chat-main__body--message__list--time
+    = chat.created_at
+  .chat-main__body--message__list--body
+    - if chat.content.present?
+      %p.chat-main__body--message__list--body__content
+        = chat.content
+    = image_tag chat.image.url, class: 'chat-main__body--message__list--body__image' if chat.image.present?
