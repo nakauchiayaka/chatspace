@@ -117,6 +117,10 @@
                     margin-top: 10px;
                     clear: both;
                     margin-bottom: -6px;
+                    &__image{
+                      max-width: 200px;
+                      height: auto;
+                    }
                   }
                 }
               }
