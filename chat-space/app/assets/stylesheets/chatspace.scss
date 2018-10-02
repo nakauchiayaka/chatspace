@@ -95,6 +95,7 @@
               &__body{
                 height: calc(85% - 90px);
                 background-color:#AAAAAA;
+                overflow: auto;
                 &--message__list{
                   margin: 0 40px;
                   &--name{
