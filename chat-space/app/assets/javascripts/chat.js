@@ -69,10 +69,10 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
+      const form = document.getElementById("new_chat");
       $('.chat-main__body').append(html);
-      console.log("gggggg");
-      $('.chat-main__footer--form__body--message').val('');
-      $('.chat-main__body').animate({scrollTop:9999});
+      form.reset();
+      $('.chat-main__body').animate({scrollTop:$('.chat-main__body')[0].scrollHeight});
       $('.chat-main__footer--form__body--submit').attr('disabled', false);
     })
     .fail(function(){

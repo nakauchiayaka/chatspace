@@ -12,10 +12,11 @@
             = user.name
     .chat-main__body
       = render @chats
+      .chat-main__body--bottum
     .chat-main__footer
       .chat-main__footer--form
         .chat-main__footer--form__body
-          = form_for [@group, @chat] ,  html: {id: 'new_chat', class: 'form'}do |f|
+          = form_for [@group, @chat] ,  html: {id: 'new_chat', class: 'form'} do |f|
             = f.text_field :content, class:'chat-main__footer--form__body--message',placeholder: "type a message"
             .form__mask
               =f.label :image,class:'chat-main__footer--form__body--chat-file' do
