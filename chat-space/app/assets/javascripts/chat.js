@@ -53,26 +53,31 @@ $(function(){
     })
   });
 
-  setInterval(function() {
-    $.ajax({
-      url: location.href.json,
-      dataType: 'json'
-    })
-    .done(function(chats) {
-      var id = $('.chat-main__body--message__list:last').data("chat-id");
-      var insertHTML = '';
-      chats.forEach(function(chat) {
-        if (chat.id > id ) {
-        insertHTML += buildHTML(chat);
-        }
-      });
-      $('.chat-main__body').append(insertHTML);
-      $('.chat-main__body').animate({scrollTop:$('.chat-main__body')[0].scrollHeight});
-    })
-    .fail(function(json) {
-      alert('自動更新に失敗しました');
-    })
-  } , 5000 );
+  $(window).bind("load", function(){
+    if(document.URL.match("chats")) {
+      setInterval(function(){
+      $.ajax({
+        url: location.href.json,
+        dataType: 'json'
+      })
+      .done(function(chats) {
+        var id = $('.chat-main__body--message__list:last').data("chat-id");
+        var insertHTML = '';
+        chats.forEach(function(chat) {
+          if (chat.id > id ) {
+          insertHTML += buildHTML(chat);
+          }
+        });
+        $('.chat-main__body').append(insertHTML);
+        $('.chat-main__body').animate({scrollTop:$('.chat-main__body')[0].scrollHeight});
+        alert("aaa");
+      })
+      .fail(function(json) {
+        alert('自動更新に失敗しました');
+      })
+    } , 5000 );
+    }
+  });
 });
 
 
