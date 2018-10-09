@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(chat){
-    var html_top = `<div class='chat-main__body--message__list'>
+    var html_top = `<div class='chat-main__body--message__list' data-chat-id="${chat.id}">
       <p class='chat-main__body--message__list--name'>
       ${chat.user_name}
       </p>
@@ -51,5 +51,35 @@ $(function(){
     .fail(function(){
       alert('メッセージを入力してください。');
     })
-  })
-})
+  });
+
+  $(window).bind("load", function(){
+    if(document.URL.match("chats")) {
+      setInterval(function(){
+      $.ajax({
+        url: location.href.json,
+        dataType: 'json'
+      })
+      .done(function(chats) {
+        var id = $('.chat-main__body--message__list:last').data("chat-id");
+        var insertHTML = '';
+        chats.forEach(function(chat) {
+          if (chat.id > id ) {
+          insertHTML += buildHTML(chat);
+          }
+        });
+        $('.chat-main__body').append(insertHTML);
+        $('.chat-main__body').animate({scrollTop:$('.chat-main__body')[0].scrollHeight});
+        alert("aaa");
+      })
+      .fail(function(json) {
+        alert('自動更新に失敗しました');
+      })
+    } , 5000 );
+    }
+  });
+});
+
+
+
+
