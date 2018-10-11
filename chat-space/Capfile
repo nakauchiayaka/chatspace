@@ -12,15 +12,24 @@ require "capistrano/deploy"
 # require "capistrano/scm/svn"
 # install_plugin Capistrano::SCM::Svn
 # or
-require "capistrano/scm/git"
-install_plugin Capistrano::SCM::Git
+require 'capistrano/recipes/deploy/strategy/remote_cache'
 
-class Capistrano::Git
-  module MultiSubDirectoryStrategy
-    include DefaultStrategy
+class Capistrano::Deploy::Strategy::RemoteCacheSubdir < Capistrano::Deploy::Strategy::RemoteCache
+  private
+  def repository_cache_subdir
+    if configuration[:deploy_subdir]
+      File.join repository_cache, configuration[:deploy_subdir]
+    else
+      repository_cache
+    end
+  end
 
-    def release
-      git :archive, fetch(:branch), fetch(:deploy_sub_dirs).join(" "), '| tar -x -f - -C', release_path
+  def copy_repository_cache
+    if copy_exclude.empty?
+      run "cp -RpL #{repository_cache_subdir} #{configuration[:release_path]} && #{mark}"
+    else
+      exclusions = copy_exclude.map { |e| "--exclude="#{e}"" }.join(' ')
+      run "rsync -lrpt #{exclusions} #{repository_cache_subdir}/* #{configuration[:release_path]} && #{mark}"
     end
   end
 end
