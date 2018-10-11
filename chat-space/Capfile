@@ -15,6 +15,15 @@ require "capistrano/deploy"
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
 
+class Capistrano::Git
+  module MultiSubDirectoryStrategy
+    include DefaultStrategy
+
+    def release
+      git :archive, fetch(:branch), fetch(:deploy_sub_dirs).join(" "), '| tar -x -f - -C', release_path
+    end
+  end
+end
 # Include tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:

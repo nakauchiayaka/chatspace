@@ -15,7 +15,11 @@ set :ssh_options, auth_methods: ['publickey'],
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
-set :bundle_gemfile,  "chatspace/chat-space/Gemfile"
+
+set :git_strategy, Capistrano::Git::MultiSubDirectoryStrategy
+set :deploy_sub_dirs, ["chat-space"] # clientとcommonだけデプロイする
+
+set :bundle_gemfile,  "chat-space/Gemfile"
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
