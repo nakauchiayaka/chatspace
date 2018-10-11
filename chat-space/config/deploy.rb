@@ -16,9 +16,9 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
-require './lib/deploy/strategy/remote_cache_subdir'
-set :strategy, Capistrano::Deploy::Strategy::RemoteCacheSubdir.new(self)
-set :deploy_subdir, -> 'chat-space'
+# require './lib/deploy/strategy/remote_cache_subdir'
+# set :strategy, Capistrano::Deploy::Strategy::RemoteCacheSubdir.new(self)
+# set :deploy_subdir, -> 'chat-space'
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
