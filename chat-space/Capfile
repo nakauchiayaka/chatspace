@@ -41,7 +41,7 @@ require "capistrano/deploy"
 # end
 
 
-set :strategy, RemoteCacheSubdir.new(self)
+# set :strategy, RemoteCacheSubdir.new(self)
 # Include tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:
