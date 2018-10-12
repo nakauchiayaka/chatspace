@@ -70,7 +70,7 @@ $(function(){
         });
         $('.chat-main__body').append(insertHTML);
         $('.chat-main__body').animate({scrollTop:$('.chat-main__body')[0].scrollHeight});
-        alert("aaa");
+
       })
       .fail(function(json) {
         alert('自動更新に失敗しました');
