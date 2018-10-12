@@ -63,6 +63,7 @@
                 border:1px solid #EEEEEE;
                 &--group{
                   margin: 0 40px;
+                  position: relative;
                   &__name{
                     font-size: 20px;
                     color: #333333;
@@ -85,9 +86,10 @@
                     text-align: center;
                     font-size: 15px;
                     padding: 12.5px 20px;
-                    margin-top: 28px;
+                    top: 28px;
                     border: 1px solid $skyblue;
-                    float: right;
+                    right: 0;
+                    position: absolute;
                   }
                 }
               }
