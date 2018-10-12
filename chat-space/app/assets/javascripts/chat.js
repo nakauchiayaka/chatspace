@@ -61,11 +61,13 @@ $(function(){
         dataType: 'json'
       })
       .done(function(chats) {
+        console.log("aaa");
         var id = $('.chat-main__body--message__list:last').data("chat-id");
         var insertHTML = '';
         chats.forEach(function(chat) {
           if (chat.id > id ) {
           insertHTML += buildHTML(chat);
+          console.log("bbb");
           }
         });
         $('.chat-main__body').append(insertHTML);
