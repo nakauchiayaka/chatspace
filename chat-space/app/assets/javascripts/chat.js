@@ -62,7 +62,7 @@ $(function(){
       })
       .done(function(chats) {
         console.log("aaa");
-        var id = $('.chat-main__body--message__list:last').data("chat-id");
+        var id = $('.chat-main__body:last').data("chat-id");
         var insertHTML = '';
         chats.forEach(function(chat) {
           if (chat.id > id ) {
