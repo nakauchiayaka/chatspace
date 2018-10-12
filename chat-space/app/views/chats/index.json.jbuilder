@@ -5,3 +5,4 @@ json.array! @chats.each do |chat|
   json.content  chat.content
   json.created_at chat.created_at
 end
+

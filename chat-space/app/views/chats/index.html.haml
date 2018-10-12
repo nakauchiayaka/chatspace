@@ -12,6 +12,7 @@
           %p.chat-main__header--group__edit-btn edit
     .chat-main__body
       = render @chats
+      %input{name: "letest_chat_id", type: "hidden", value: @letest_chat_id, class: 'letest_chat_id' }
       .chat-main__body--bottum
     .chat-main__footer
       .chat-main__footer--form

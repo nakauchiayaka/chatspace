@@ -1,4 +1,7 @@
 $(function(){
+
+  var id = 0;
+
   function buildHTML(chat){
     var html_top = `<div class='chat-main__body--message__list' data-chat-id="${chat.id}">
       <p class='chat-main__body--message__list--name'>
@@ -47,6 +50,7 @@ $(function(){
       form.reset();
       $('.chat-main__body').animate({scrollTop:$('.chat-main__body')[0].scrollHeight});
       $('.chat-main__footer--form__body--submit').attr('disabled', false);
+      id = data.chat_id;
     })
     .fail(function(){
       alert('メッセージを入力してください。');
@@ -61,13 +65,18 @@ $(function(){
         dataType: 'json'
       })
       .done(function(chats) {
-        console.log("aaa");
-        var id = $('.chat-main__body:last').data("chat-id");
+        // 画面初期表示時のみ実行
+        if(id == 0) {
+          id = $('.letest_chat_id').val();
+        }
+
         var insertHTML = '';
         chats.forEach(function(chat) {
           if (chat.id > id ) {
-          insertHTML += buildHTML(chat);
-          console.log("bbb");
+            insertHTML += buildHTML(chat);
+            id = chat.id //画面上の最新IDを更新
+            console.log("bbb");
+            console.log(id);
           }
         });
         $('.chat-main__body').append(insertHTML);

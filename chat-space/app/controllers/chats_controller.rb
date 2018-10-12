@@ -4,6 +4,9 @@ class ChatsController < ApplicationController
   def index
     @chat = Chat.new
     @chats = @group.chats.includes(:user)
+    if @chats.length != 0
+      @letest_chat_id = @chats.last.id
+    end
     respond_to do |format|
       format.html
       format.json
